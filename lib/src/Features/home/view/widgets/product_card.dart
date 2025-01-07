@@ -8,50 +8,94 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.network(productModel.image, fit: BoxFit.cover),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  productModel.title,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.deepOrange,
+              ),
+              child: Center(
+                child: Text(
+                  "${productModel.id}",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-                SizedBox(height: 8),
-                Text(productModel.description),
-                SizedBox(height: 8),
-                Text(
-                  'Price: \$${productModel.price}',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    Text(
-                      "${productModel.rating}",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(width: 8),
-                    Icon(Icons.star, color: Colors.yellow),
-                    Icon(Icons.star, color: Colors.yellow),
-                    Icon(Icons.star, color: Colors.yellow),
-                    Icon(Icons.star, color: Colors.yellow),
-                    Icon(Icons.star_half, color: Colors.yellow),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Text(
-                  productModel.category,
-                  style: TextStyle(color: Colors.blue),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 15),
+            Image.network(productModel.image, fit: BoxFit.cover, height: 250),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    productModel.title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepOrange,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    productModel.description,
+                    style: TextStyle(color: Colors.blueGrey),
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Price: \$${productModel.price}',
+                        style: TextStyle(
+                          color: Colors.deepOrange,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        productModel.category,
+                        style: TextStyle(
+                          color: Colors.deepOrange,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Text(
+                        "${productModel.rating.rate}",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "(${productModel.rating.count} review)",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

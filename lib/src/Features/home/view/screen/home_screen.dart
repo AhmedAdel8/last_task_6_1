@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
           return Scaffold(
             appBar: customAppBar(text: StringApp.titleappbar),
             body: ListView.builder(
+              physics: BouncingScrollPhysics(),
               itemCount: state.model.length,
               itemBuilder: (context, index) {
                 return ProductCard(productModel: state.model[index]);
