@@ -1,0 +1,2 @@
+D:/APPS/last_task_6_1/android/app/.cxx/Debug/5134356x/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/APPS/last_task_6_1/android/app/.cxx/Debug/5134356x/arm64-v8a/CMakeFiles/rebuild_cache.dir
